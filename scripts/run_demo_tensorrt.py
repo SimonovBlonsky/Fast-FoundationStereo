@@ -112,8 +112,7 @@ if __name__=="__main__":
       lines = f.readlines()
       K = np.array(list(map(float, lines[0].rstrip().split()))).astype(np.float32).reshape(3,3)
       baseline = float(lines[1])
-    K[0, :] *= fx
-    K[1, :] *= fy
+    K[:2] *= np.array([fx, fy], dtype=np.float32)[:, np.newaxis]
     depth = K[0,0]*baseline/disp
     np.save(f'{args.out_dir}/depth_meter.npy', depth)
     xyz_map = depth2xyzmap(depth, K)
