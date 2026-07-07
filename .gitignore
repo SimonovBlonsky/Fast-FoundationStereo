@@ -9,6 +9,6 @@ cfg.yaml
 # Ignore weight files but keep the folder structure
 weights/*
 !weights/.gitkeep
-output/
+output*/
 .claude/
 cpp/build/
